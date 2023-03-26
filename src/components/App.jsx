@@ -23,7 +23,7 @@ export class App extends Component {
 
   addContacts = (id, name, number) => {
     if (
-      this.state.contacts.filter(contact => contact.name === name).length !== 0
+      this.state.contacts.find(contact => contact.name === name) !== undefined
     ) {
       Notiflix.Notify.failure(`${name} already in your contact book`);
       return;
