@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ContactForm from './ContactForm';
 import Filter from './Filter';
 import ContactList from './ContactList';
+import Notiflix from 'notiflix';
 
 export class App extends Component {
   state = {
@@ -24,7 +25,7 @@ export class App extends Component {
     if (
       this.state.contacts.filter(contact => contact.name === name).length !== 0
     ) {
-      alert(`${name} is already in contacts`);
+      Notiflix.Notify.failure(`${name} already in your contact book`);
       return;
     }
 
@@ -32,6 +33,7 @@ export class App extends Component {
     this.setState(prevState => ({
       contacts: [newContact, ...prevState.contacts],
     }));
+    Notiflix.Notify.success(`You add ${name} to phonebook`);
   };
 
   visibleContacts = () => {
@@ -48,6 +50,7 @@ export class App extends Component {
     const deleteSelectContact = this.state.contacts.filter(
       contact => contact.id !== e.target.id
     );
+
     this.setState(prevState => ({
       contacts: [...deleteSelectContact],
     }));

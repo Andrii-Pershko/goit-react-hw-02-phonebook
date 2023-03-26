@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
 import PropTypes from 'prop-types';
+import  './ContactForm.module.css';
 
 const initialValues = {
   name: '',
@@ -41,7 +42,7 @@ export default class ContactForm extends Component {
           </label>
 
           <label>
-            <p>Field</p>
+            <p>Number</p>
             <Field type="tel" name="number" />
             <ErrorMessage name="number" />
           </label>

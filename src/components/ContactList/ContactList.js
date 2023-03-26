@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
+import css from './ContactList.module.css';
 
 const ContactList = ({ contactList, onChange }) => {
   return (
     <ul>
       {contactList.map(({ name, id, number }) => (
         <li key={id}>
-          {name}: {number}
+          <span className={css.name}> {name}:</span>
+          <span className={css.number}>{number}</span>
           <button type="button" id={id} onClick={onChange}>
             Delete
           </button>
