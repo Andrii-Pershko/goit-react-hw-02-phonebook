@@ -13,7 +13,7 @@ const initialValues = {
 let userSchema = object().shape({
   name: string().min(2).required(),
   number: string()
-    .min(12, 'enter number in formst: xxx-xxx-xxxx')
+    .min(12, 'enter number in forms: xxx-xxx-xxxx')
     .matches(
       /^((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}$/,
       'enter number in formst: xxx-xxx-xxxx'
